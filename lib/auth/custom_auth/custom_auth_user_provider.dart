@@ -1,18 +1,12 @@
 import 'package:rxdart/rxdart.dart';
 
-import '/backend/schema/structs/index.dart';
 import 'custom_auth_manager.dart';
 
 class PaynestAuthUser {
-  PaynestAuthUser({
-    required this.loggedIn,
-    this.uid,
-    this.userData,
-  });
+  PaynestAuthUser({required this.loggedIn, this.uid});
 
   bool loggedIn;
   String? uid;
-  UserStruct? userData;
 }
 
 /// Generates a stream of the authenticated user.

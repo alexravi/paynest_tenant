@@ -58,8 +58,8 @@ class _PaymentRecieptWidgetState extends State<PaymentRecieptWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 24.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.safePop();
             },
           ),
           title: Text(
@@ -557,49 +557,54 @@ class _PaymentRecieptWidgetState extends State<PaymentRecieptWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                 child: Container(
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'Download Receipt',
-                    icon: Icon(
-                      Icons.download_rounded,
-                      color: FlutterFlowTheme.of(context).info,
-                      size: 20.0,
-                    ),
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 50.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).tertiary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                font: GoogleFonts.interTight(
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
-                                ),
-                                color: FlutterFlowTheme.of(context).info,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .fontStyle,
-                              ),
-                      elevation: 0.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        text: 'Download Receipt',
+                        icon: Icon(
+                          Icons.download_rounded,
+                          size: 20.0,
+                        ),
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 50.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconColor: FlutterFlowTheme.of(context).info,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context).info,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
+                    ],
                   ),
                 ),
               ),
@@ -613,7 +618,6 @@ class _PaymentRecieptWidgetState extends State<PaymentRecieptWidget> {
                     text: 'Send Receipt via Email',
                     icon: Icon(
                       Icons.email_outlined,
-                      color: FlutterFlowTheme.of(context).primaryText,
                       size: 20.0,
                     ),
                     options: FFButtonOptions(
@@ -623,6 +627,7 @@ class _PaymentRecieptWidgetState extends State<PaymentRecieptWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconColor: FlutterFlowTheme.of(context).primaryText,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(

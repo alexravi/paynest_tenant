@@ -1,10 +1,8 @@
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
-import 'auth/custom_auth/auth_util.dart';
 import 'auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,17 +17,7 @@ void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
-  await FlutterFlowTheme.initialize();
-
-  await authManager.initialize();
-
-  final appState = FFAppState(); // Initialize FFAppState
-  await appState.initializePersistedState();
-
-  runApp(ChangeNotifierProvider(
-    create: (context) => appState,
-    child: MyApp(),
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -44,7 +32,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
 
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = ThemeMode.system;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -87,7 +75,6 @@ class _MyAppState extends State<MyApp> {
 
   void setThemeMode(ThemeMode mode) => safeSetState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -111,10 +98,6 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.light,
         useMaterial3: false,
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        useMaterial3: false,
-      ),
       themeMode: _themeMode,
       routerConfig: _router,
     );
@@ -122,10 +105,16 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+  NavBarPage({
+    Key? key,
+    this.initialPage,
+    this.page,
+    this.disableResizeToAvoidBottomInset = false,
+  }) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
+  final bool disableResizeToAvoidBottomInset;
 
   @override
   _NavBarPageState createState() => _NavBarPageState();
@@ -149,12 +138,14 @@ class _NavBarPageState extends State<NavBarPage> {
       'PaymentsPage': PaymentsPageWidget(),
       'rewardspage': RewardspageWidget(),
       'home1': Home1Widget(),
+      'splitpage': SplitpageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
     final MediaQueryData queryData = MediaQuery.of(context);
 
     return Scaffold(
+      resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
       body: MediaQuery(
           data: queryData
               .removeViewInsets(removeBottom: true)
@@ -244,6 +235,29 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2
+                        ? FlutterFlowTheme.of(context).primary
+                        : FlutterFlowTheme.of(context).secondaryText,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.call_split,
+                  color: currentIndex == 3
+                      ? FlutterFlowTheme.of(context).primary
+                      : FlutterFlowTheme.of(context).secondaryText,
+                ),
+                Text(
+                  'Splits\n',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 3
                         ? FlutterFlowTheme.of(context).primary
                         : FlutterFlowTheme.of(context).secondaryText,
                     fontSize: 11.0,

@@ -108,25 +108,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: PaymentsPageWidget.routeName,
-          path: PaymentsPageWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'PaymentsPage')
-              : NavBarPage(
-                  initialPage: 'PaymentsPage',
-                  page: PaymentsPageWidget(),
-                ),
-        ),
+            name: PaymentsPageWidget.routeName,
+            path: PaymentsPageWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'PaymentsPage')
+                : NavBarPage(
+                    initialPage: 'PaymentsPage',
+                    page: PaymentsPageWidget(),
+                  )),
         FFRoute(
-          name: RewardspageWidget.routeName,
-          path: RewardspageWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'rewardspage')
-              : NavBarPage(
-                  initialPage: 'rewardspage',
-                  page: RewardspageWidget(),
-                ),
-        ),
+            name: RewardspageWidget.routeName,
+            path: RewardspageWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'rewardspage')
+                : NavBarPage(
+                    initialPage: 'rewardspage',
+                    page: RewardspageWidget(),
+                  )),
         FFRoute(
           name: PaymentRecieptWidget.routeName,
           path: PaymentRecieptWidget.routePath,
@@ -167,14 +165,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: Home1Widget.routeName,
-          path: Home1Widget.routePath,
+            name: Home1Widget.routeName,
+            path: Home1Widget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'home1')
+                : NavBarPage(
+                    initialPage: 'home1',
+                    page: Home1Widget(),
+                  )),
+        FFRoute(
+          name: SplitpageWidget.routeName,
+          path: SplitpageWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'home1')
-              : NavBarPage(
-                  initialPage: 'home1',
-                  page: Home1Widget(),
-                ),
+              ? NavBarPage(initialPage: 'splitpage')
+              : SplitpageWidget(),
+        ),
+        FFRoute(
+          name: AddexpenseWidget.routeName,
+          path: AddexpenseWidget.routePath,
+          builder: (context, params) => AddexpenseWidget(),
+        ),
+        FFRoute(
+          name: ViewsplitWidget.routeName,
+          path: ViewsplitWidget.routePath,
+          builder: (context, params) => ViewsplitWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -7,32 +7,29 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class PropertyStruct extends BaseStruct {
   PropertyStruct({
-    String? propertycode,
-    String? ownerID,
+    String? inviteCode,
     String? name,
     String? address,
     String? city,
-    String? monthlyRent,
-  })  : _propertycode = propertycode,
-        _ownerID = ownerID,
+    String? state,
+    String? pincode,
+    int? monthlyrent,
+    String? description,
+  })  : _inviteCode = inviteCode,
         _name = name,
         _address = address,
         _city = city,
-        _monthlyRent = monthlyRent;
+        _state = state,
+        _pincode = pincode,
+        _monthlyrent = monthlyrent,
+        _description = description;
 
-  // "propertycode" field.
-  String? _propertycode;
-  String get propertycode => _propertycode ?? '';
-  set propertycode(String? val) => _propertycode = val;
+  // "inviteCode" field.
+  String? _inviteCode;
+  String get inviteCode => _inviteCode ?? '';
+  set inviteCode(String? val) => _inviteCode = val;
 
-  bool hasPropertycode() => _propertycode != null;
-
-  // "ownerID" field.
-  String? _ownerID;
-  String get ownerID => _ownerID ?? '';
-  set ownerID(String? val) => _ownerID = val;
-
-  bool hasOwnerID() => _ownerID != null;
+  bool hasInviteCode() => _inviteCode != null;
 
   // "name" field.
   String? _name;
@@ -55,42 +52,65 @@ class PropertyStruct extends BaseStruct {
 
   bool hasCity() => _city != null;
 
-  // "monthlyRent" field.
-  String? _monthlyRent;
-  String get monthlyRent => _monthlyRent ?? '';
-  set monthlyRent(String? val) => _monthlyRent = val;
+  // "state" field.
+  String? _state;
+  String get state => _state ?? '';
+  set state(String? val) => _state = val;
 
-  bool hasMonthlyRent() => _monthlyRent != null;
+  bool hasState() => _state != null;
+
+  // "pincode" field.
+  String? _pincode;
+  String get pincode => _pincode ?? '';
+  set pincode(String? val) => _pincode = val;
+
+  bool hasPincode() => _pincode != null;
+
+  // "monthlyrent" field.
+  int? _monthlyrent;
+  int get monthlyrent => _monthlyrent ?? 0;
+  set monthlyrent(int? val) => _monthlyrent = val;
+
+  void incrementMonthlyrent(int amount) => monthlyrent = monthlyrent + amount;
+
+  bool hasMonthlyrent() => _monthlyrent != null;
+
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  set description(String? val) => _description = val;
+
+  bool hasDescription() => _description != null;
 
   static PropertyStruct fromMap(Map<String, dynamic> data) => PropertyStruct(
-        propertycode: data['propertycode'] as String?,
-        ownerID: data['ownerID'] as String?,
+        inviteCode: data['inviteCode'] as String?,
         name: data['name'] as String?,
         address: data['address'] as String?,
         city: data['city'] as String?,
-        monthlyRent: data['monthlyRent'] as String?,
+        state: data['state'] as String?,
+        pincode: data['pincode'] as String?,
+        monthlyrent: castToType<int>(data['monthlyrent']),
+        description: data['description'] as String?,
       );
 
   static PropertyStruct? maybeFromMap(dynamic data) =>
       data is Map ? PropertyStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'propertycode': _propertycode,
-        'ownerID': _ownerID,
+        'inviteCode': _inviteCode,
         'name': _name,
         'address': _address,
         'city': _city,
-        'monthlyRent': _monthlyRent,
+        'state': _state,
+        'pincode': _pincode,
+        'monthlyrent': _monthlyrent,
+        'description': _description,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'propertycode': serializeParam(
-          _propertycode,
-          ParamType.String,
-        ),
-        'ownerID': serializeParam(
-          _ownerID,
+        'inviteCode': serializeParam(
+          _inviteCode,
           ParamType.String,
         ),
         'name': serializeParam(
@@ -105,21 +125,28 @@ class PropertyStruct extends BaseStruct {
           _city,
           ParamType.String,
         ),
-        'monthlyRent': serializeParam(
-          _monthlyRent,
+        'state': serializeParam(
+          _state,
+          ParamType.String,
+        ),
+        'pincode': serializeParam(
+          _pincode,
+          ParamType.String,
+        ),
+        'monthlyrent': serializeParam(
+          _monthlyrent,
+          ParamType.int,
+        ),
+        'description': serializeParam(
+          _description,
           ParamType.String,
         ),
       }.withoutNulls;
 
   static PropertyStruct fromSerializableMap(Map<String, dynamic> data) =>
       PropertyStruct(
-        propertycode: deserializeParam(
-          data['propertycode'],
-          ParamType.String,
-          false,
-        ),
-        ownerID: deserializeParam(
-          data['ownerID'],
+        inviteCode: deserializeParam(
+          data['inviteCode'],
           ParamType.String,
           false,
         ),
@@ -138,8 +165,23 @@ class PropertyStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        monthlyRent: deserializeParam(
-          data['monthlyRent'],
+        state: deserializeParam(
+          data['state'],
+          ParamType.String,
+          false,
+        ),
+        pincode: deserializeParam(
+          data['pincode'],
+          ParamType.String,
+          false,
+        ),
+        monthlyrent: deserializeParam(
+          data['monthlyrent'],
+          ParamType.int,
+          false,
+        ),
+        description: deserializeParam(
+          data['description'],
           ParamType.String,
           false,
         ),
@@ -151,32 +193,46 @@ class PropertyStruct extends BaseStruct {
   @override
   bool operator ==(Object other) {
     return other is PropertyStruct &&
-        propertycode == other.propertycode &&
-        ownerID == other.ownerID &&
+        inviteCode == other.inviteCode &&
         name == other.name &&
         address == other.address &&
         city == other.city &&
-        monthlyRent == other.monthlyRent;
+        state == other.state &&
+        pincode == other.pincode &&
+        monthlyrent == other.monthlyrent &&
+        description == other.description;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([propertycode, ownerID, name, address, city, monthlyRent]);
+  int get hashCode => const ListEquality().hash([
+        inviteCode,
+        name,
+        address,
+        city,
+        state,
+        pincode,
+        monthlyrent,
+        description
+      ]);
 }
 
 PropertyStruct createPropertyStruct({
-  String? propertycode,
-  String? ownerID,
+  String? inviteCode,
   String? name,
   String? address,
   String? city,
-  String? monthlyRent,
+  String? state,
+  String? pincode,
+  int? monthlyrent,
+  String? description,
 }) =>
     PropertyStruct(
-      propertycode: propertycode,
-      ownerID: ownerID,
+      inviteCode: inviteCode,
       name: name,
       address: address,
       city: city,
-      monthlyRent: monthlyRent,
+      state: state,
+      pincode: pincode,
+      monthlyrent: monthlyrent,
+      description: description,
     );

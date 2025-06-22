@@ -140,8 +140,6 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                         text: 'Continue as Tenant',
                         icon: Icon(
                           Icons.person_outlined,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
                           size: 24.0,
                         ),
                         options: FFButtonOptions(
@@ -151,6 +149,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 12.0, 0.0),
+                          iconColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           color: FlutterFlowTheme.of(context).primaryText,
                           textStyle:
                               FlutterFlowTheme.of(context).titleLarge.override(

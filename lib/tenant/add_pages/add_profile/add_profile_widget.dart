@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -146,23 +147,26 @@ class _AddProfileWidgetState extends State<AddProfileWidget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              'Personal Information',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    font: GoogleFonts.interTight(
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Text(
+                                'Personal Information',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      font: GoogleFonts.interTight(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .fontStyle,
                                     ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontStyle,
-                                  ),
+                              ),
                             ),
                             Container(
                               width: double.infinity,
@@ -730,23 +734,27 @@ class _AddProfileWidgetState extends State<AddProfileWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Text(
-                                'Emergency Contact',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      font: GoogleFonts.interTight(
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: Text(
+                                  'Emergency Contact',
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        font: GoogleFonts.interTight(
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .fontStyle,
                                       ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
+                                ),
                               ),
                               Container(
                                 width: double.infinity,
@@ -1095,8 +1103,8 @@ class _AddProfileWidgetState extends State<AddProfileWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                     child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        context.pushNamed(AddPropertyWidget.routeName);
                       },
                       text: 'Save Changes',
                       options: FFButtonOptions(

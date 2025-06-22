@@ -1,4 +1,5 @@
 import '/components/add_flatmate_c_widget.dart';
+import '/components/confirm_flatmate_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -212,8 +213,25 @@ class _AddFlatmateWidgetState extends State<AddFlatmateWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      context: context,
+                      builder: (context) {
+                        return GestureDetector(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            FocusManager.instance.primaryFocus?.unfocus();
+                          },
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: ConfirmFlatmateWidget(),
+                          ),
+                        );
+                      },
+                    ).then((value) => safeSetState(() {}));
                   },
                   text: 'Add Flatmate',
                   options: FFButtonOptions(

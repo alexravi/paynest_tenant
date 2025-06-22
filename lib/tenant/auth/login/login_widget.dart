@@ -2,11 +2,13 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -38,6 +40,7 @@ class _LoginWidgetState extends State<LoginWidget>
     _model.phoneNumberTextController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
 
+    _model.phoneNumberMask = MaskTextInputFormatter(mask: '##########');
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -443,7 +446,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 20.0),
+                                          10.0, 0.0, 0.0, 20.0),
                                       child: FlutterFlowIconButton(
                                         borderRadius: 8.0,
                                         buttonSize: 40.0,
@@ -460,8 +463,16 @@ class _LoginWidgetState extends State<LoginWidget>
                                               FlutterFlowTheme.of(context).info,
                                           size: 24.0,
                                         ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed(
+                                            VerifyOtpWidget.routeName,
+                                            queryParameters: {
+                                              'phoneNumber': serializeParam(
+                                                '',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                          );
                                         },
                                       ),
                                     ),

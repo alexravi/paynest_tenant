@@ -18,3 +18,6 @@ export '/tenant/add_pages/add_flatmate/add_flatmate_widget.dart'
 export '/tenant/add_pages/add_profile/add_profile_widget.dart'
     show AddProfileWidget;
 export '/home1/home1_widget.dart' show Home1Widget;
+export '/splitpage/splitpage_widget.dart' show SplitpageWidget;
+export '/addexpense/addexpense_widget.dart' show AddexpenseWidget;
+export '/viewsplit/viewsplit_widget.dart' show ViewsplitWidget;
