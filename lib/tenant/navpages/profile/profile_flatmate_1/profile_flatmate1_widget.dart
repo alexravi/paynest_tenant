@@ -1,11 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'profile_flatmate_model.dart';
-export 'profile_flatmate_model.dart';
+import 'profile_flatmate1_model.dart';
+export 'profile_flatmate1_model.dart';
 
 /// ✅ UX GOALS
 /// Quick view of who the flatmate is
@@ -75,25 +74,25 @@ export 'profile_flatmate_model.dart';
 /// Use green badge (score >80), yellow (60–80), red (<60)
 ///
 /// Font: Inter / SF Pro for clean modern look
-class ProfileFlatmateWidget extends StatefulWidget {
-  const ProfileFlatmateWidget({super.key});
+class ProfileFlatmate1Widget extends StatefulWidget {
+  const ProfileFlatmate1Widget({super.key});
 
-  static String routeName = 'profile_flatmate';
-  static String routePath = '/profileFlatmate';
+  static String routeName = 'profile_flatmate_1';
+  static String routePath = '/profileFlatmate1';
 
   @override
-  State<ProfileFlatmateWidget> createState() => _ProfileFlatmateWidgetState();
+  State<ProfileFlatmate1Widget> createState() => _ProfileFlatmate1WidgetState();
 }
 
-class _ProfileFlatmateWidgetState extends State<ProfileFlatmateWidget> {
-  late ProfileFlatmateModel _model;
+class _ProfileFlatmate1WidgetState extends State<ProfileFlatmate1Widget> {
+  late ProfileFlatmate1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProfileFlatmateModel());
+    _model = createModel(context, () => ProfileFlatmate1Model());
   }
 
   @override
@@ -185,7 +184,7 @@ class _ProfileFlatmateWidgetState extends State<ProfileFlatmateWidget> {
                           child: Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              'AS',
+                              'JS',
                               style: FlutterFlowTheme.of(context)
                                   .displayMedium
                                   .override(
@@ -246,7 +245,7 @@ class _ProfileFlatmateWidgetState extends State<ProfileFlatmateWidget> {
                             ),
                       ),
                       Text(
-                        '+91 98765 43210',
+                        '+91 9876543210',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               font: GoogleFonts.inter(
                                 fontWeight: FlutterFlowTheme.of(context)
@@ -265,94 +264,6 @@ class _ProfileFlatmateWidgetState extends State<ProfileFlatmateWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: '📞 Call',
-                            options: FFButtonOptions(
-                              width: 120.0,
-                              height: 40.0,
-                              padding: EdgeInsets.all(8.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                          FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: '💬 Message',
-                            options: FFButtonOptions(
-                              width: 120.0,
-                              height: 40.0,
-                              padding: EdgeInsets.all(8.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ].divide(SizedBox(width: 16.0)),
                       ),
                     ].divide(SizedBox(height: 12.0)),
                   ),
@@ -437,7 +348,7 @@ class _ProfileFlatmateWidgetState extends State<ProfileFlatmateWidget> {
                                     ),
                               ),
                               Text(
-                                '₹6,000',
+                                '₹25,000',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

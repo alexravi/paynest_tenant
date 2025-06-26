@@ -7,7 +7,6 @@ import '/backend/schema/structs/index.dart';
 
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -79,13 +78,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : WelcomeWidget(),
+          appStateNotifier.loggedIn ? Home1Widget() : WelcomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : WelcomeWidget(),
+              appStateNotifier.loggedIn ? Home1Widget() : WelcomeWidget(),
         ),
         FFRoute(
           name: WelcomeWidget.routeName,
@@ -108,23 +107,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-            name: PaymentsPageWidget.routeName,
-            path: PaymentsPageWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'PaymentsPage')
-                : NavBarPage(
-                    initialPage: 'PaymentsPage',
-                    page: PaymentsPageWidget(),
-                  )),
+          name: PaymentsPageWidget.routeName,
+          path: PaymentsPageWidget.routePath,
+          builder: (context, params) => PaymentsPageWidget(),
+        ),
         FFRoute(
-            name: RewardspageWidget.routeName,
-            path: RewardspageWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'rewardspage')
-                : NavBarPage(
-                    initialPage: 'rewardspage',
-                    page: RewardspageWidget(),
-                  )),
+          name: RewardspageWidget.routeName,
+          path: RewardspageWidget.routePath,
+          builder: (context, params) => RewardspageWidget(),
+        ),
         FFRoute(
           name: PaymentRecieptWidget.routeName,
           path: PaymentRecieptWidget.routePath,
@@ -165,20 +156,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-            name: Home1Widget.routeName,
-            path: Home1Widget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'home1')
-                : NavBarPage(
-                    initialPage: 'home1',
-                    page: Home1Widget(),
-                  )),
+          name: Home1Widget.routeName,
+          path: Home1Widget.routePath,
+          builder: (context, params) => Home1Widget(),
+        ),
         FFRoute(
           name: SplitpageWidget.routeName,
           path: SplitpageWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'splitpage')
-              : SplitpageWidget(),
+          builder: (context, params) => SplitpageWidget(),
         ),
         FFRoute(
           name: AddexpenseWidget.routeName,
@@ -189,6 +174,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ViewsplitWidget.routeName,
           path: ViewsplitWidget.routePath,
           builder: (context, params) => ViewsplitWidget(),
+        ),
+        FFRoute(
+          name: ProfileFlatmate1Widget.routeName,
+          path: ProfileFlatmate1Widget.routePath,
+          builder: (context, params) => ProfileFlatmate1Widget(),
+        ),
+        FFRoute(
+          name: ProfileFlatmate2Widget.routeName,
+          path: ProfileFlatmate2Widget.routePath,
+          builder: (context, params) => ProfileFlatmate2Widget(),
+        ),
+        FFRoute(
+          name: Home1demoWidget.routeName,
+          path: Home1demoWidget.routePath,
+          builder: (context, params) => Home1demoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

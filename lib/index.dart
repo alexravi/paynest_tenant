@@ -21,3 +21,8 @@ export '/home1/home1_widget.dart' show Home1Widget;
 export '/splitpage/splitpage_widget.dart' show SplitpageWidget;
 export '/addexpense/addexpense_widget.dart' show AddexpenseWidget;
 export '/viewsplit/viewsplit_widget.dart' show ViewsplitWidget;
+export '/tenant/navpages/profile/profile_flatmate_1/profile_flatmate1_widget.dart'
+    show ProfileFlatmate1Widget;
+export '/tenant/navpages/profile/profile_flatmate_2/profile_flatmate2_widget.dart'
+    show ProfileFlatmate2Widget;
+export '/home1demo/home1demo_widget.dart' show Home1demoWidget;

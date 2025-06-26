@@ -275,19 +275,27 @@ class _VerifyOtpWidgetState extends State<VerifyOtpWidget>
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed(
-                                    AddProfileWidget.routeName,
-                                    queryParameters: {
-                                      'phoneNumber': serializeParam(
-                                        '',
-                                        ParamType.String,
+                                  if (_model.pinCodeController!.text ==
+                                      '000000') {
+                                    context
+                                        .pushNamed(Home1demoWidget.routeName);
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Enter valid OTP',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
                                       ),
-                                      'authToken': serializeParam(
-                                        '',
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
+                                    );
+                                  }
                                 },
                                 text: 'Verify Code',
                                 options: FFButtonOptions(

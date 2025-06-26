@@ -464,15 +464,38 @@ class _LoginWidgetState extends State<LoginWidget>
                                           size: 24.0,
                                         ),
                                         onPressed: () async {
-                                          context.pushNamed(
-                                            VerifyOtpWidget.routeName,
-                                            queryParameters: {
-                                              'phoneNumber': serializeParam(
-                                                '',
-                                                ParamType.String,
+                                          if (_model.phoneNumberTextController
+                                                  .text ==
+                                              '9999999999') {
+                                            context.pushNamed(
+                                              VerifyOtpWidget.routeName,
+                                              queryParameters: {
+                                                'phoneNumber': serializeParam(
+                                                  '',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Contact Admin, you don\'t have access yet',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
                                               ),
-                                            }.withoutNulls,
-                                          );
+                                            );
+                                          }
                                         },
                                       ),
                                     ),

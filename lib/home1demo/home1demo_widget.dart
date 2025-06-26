@@ -5,28 +5,29 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home1_model.dart';
-export 'home1_model.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'home1demo_model.dart';
+export 'home1demo_model.dart';
 
-class Home1Widget extends StatefulWidget {
-  const Home1Widget({super.key});
+class Home1demoWidget extends StatefulWidget {
+  const Home1demoWidget({super.key});
 
-  static String routeName = 'home1';
-  static String routePath = '/home1';
+  static String routeName = 'home1demo';
+  static String routePath = '/home1demo';
 
   @override
-  State<Home1Widget> createState() => _Home1WidgetState();
+  State<Home1demoWidget> createState() => _Home1demoWidgetState();
 }
 
-class _Home1WidgetState extends State<Home1Widget> {
-  late Home1Model _model;
+class _Home1demoWidgetState extends State<Home1demoWidget> {
+  late Home1demoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Home1Model());
+    _model = createModel(context, () => Home1demoModel());
   }
 
   @override
@@ -186,101 +187,6 @@ class _Home1WidgetState extends State<Home1Widget> {
                                     ],
                                   ),
                                 ].divide(SizedBox(width: 12.0)),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          height: 200.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: Image.network(
-                                'https://images.unsplash.com/photo-1572196889394-1343dc70d254?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc5MzQ5ODN8&ixlib=rb-4.1.0&q=80&w=1080',
-                              ).image,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x20000000),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          child: Stack(
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                height: double.infinity,
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0x80000000),
-                                      Color(0xD0000000)
-                                    ],
-                                    stops: [0.0, 1.0],
-                                    begin: AlignmentDirectional(0.0, 1.0),
-                                    end: AlignmentDirectional(0, -1.0),
-                                  ),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  shape: BoxShape.rectangle,
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: Text(
-                                              'Sunshine Apartments',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleLarge
-                                                  .override(
-                                                    font:
-                                                        GoogleFonts.interTight(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge
-                                                              .fontStyle,
-                                                    ),
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleLarge
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
                               ),
                             ],
                           ),
@@ -755,7 +661,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                       ),
                                     ),
                                     Text(
-                                      '8309930609',
+                                      '9014637532',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -786,8 +692,11 @@ class _Home1WidgetState extends State<Home1Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      await launchUrl(Uri(
+                                        scheme: 'tel',
+                                        path: '9014637532',
+                                      ));
                                     },
                                     text: 'Call Owner',
                                     options: FFButtonOptions(
